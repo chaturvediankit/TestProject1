@@ -17,5 +17,10 @@ namespace TestProject1.Tests
         {
 
         }
+        [Test]
+        public void VerifyLogOutToApplication()
+        {
+
+        }
     }
 }
