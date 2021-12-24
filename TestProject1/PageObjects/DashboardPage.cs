@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TestProject1.PageObjects
 {
-    class DashboardPage
+    public class DashboardPage
     {
         IWebDriver driver;
         public DashboardPage(IWebDriver driver)

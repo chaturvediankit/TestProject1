@@ -7,5 +7,9 @@
 		<Parameter name="password" value="demoadmin" />
 		<Parameter name="wrongPassword" value="demo" />
 	    <Parameter name="browser" value="Chrome" />
+		<Parameter name="customerFirstName" value="Ankit" />
+		<Parameter name="customerLastName" value="Ankit" />
+		<Parameter name="customerEmail" value="Ankit" />
+		<Parameter name="customerPassword" value="Ankit" />
 	</TestRunParameters>
 </RunSettings>

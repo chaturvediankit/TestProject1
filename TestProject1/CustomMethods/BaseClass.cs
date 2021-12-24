@@ -39,7 +39,7 @@ namespace TestProject1.CustomMethods
             element.SendKeys(value);
         }
         // Custom Method for Selecting from a dropdown
-        public static void SelectFromDropDownByText(IWebElement element, string inputText)
+        public void SelectFromDropDownByText(IWebElement element, string inputText)
         {
             SelectElement se = new SelectElement(element);
             se.SelectByText(inputText);
@@ -68,7 +68,7 @@ namespace TestProject1.CustomMethods
             Actions action = new Actions(driver);
             action.MoveToElement(Element).Build().Perform();
         }
-        public static void ActionHoverAndClick(IWebDriver driver,IWebElement ElementHover, IWebElement ElementClick)
+        public void ActionHoverAndClick(IWebDriver driver,IWebElement ElementHover, IWebElement ElementClick)
         {
             Actions action = new Actions(driver);
             action.MoveToElement(ElementHover);
