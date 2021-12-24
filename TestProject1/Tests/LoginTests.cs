@@ -27,9 +27,11 @@ namespace TestProject1.Tests
         public void VerifyValidLoginToApplication()
         {
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginApplication(TestContext.Parameters.Get("username"), TestContext.Parameters.Get("password"));
+            string username = TestContext.Parameters.Get("username");
+            string password = TestContext.Parameters.Get("password");
+            loginPage.LoginApplication(username,password);
             Assert.IsTrue(AssertClass.IsElementPresent(driver, loginPage.logoutButton), "User not on home page");
-            
+                  
         }
         [Test]
         public void VerifyInValidLoginToApplication()
@@ -44,7 +46,7 @@ namespace TestProject1.Tests
         {
             LoginPage loginPage = new LoginPage(driver);
             loginPage.LoginApplication(TestContext.Parameters.Get("username"), TestContext.Parameters.Get("password"));
-            System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(1000);
             //IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
             //executor.ExecuteScript("document.body.style.zoom = '0.8'");
             loginPage.logoutButton.Click();
