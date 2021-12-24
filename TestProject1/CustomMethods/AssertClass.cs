@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TestProject1.CustomMethods
 {
-    public class AssertClass
+    public static class AssertClass
     {
         // Makes sure that the test case will not fail unless its absolutely necessary.Returns a true or false to AssertElement is Presesent Method
         public static bool IsElementPresent(IWebDriver driver,IWebElement element)

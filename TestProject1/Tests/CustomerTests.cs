@@ -13,7 +13,7 @@ namespace TestProject1.Tests
 
         }
         [Test]
-        public void EditCustomerTest()
+        public void DeleteCustomerTest()
         {
 
         }

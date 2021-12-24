@@ -49,7 +49,7 @@
           </li>
             <li class="m-r-10">
                 <a href="#">
-                    <span class="badge badge-primary">12/21/2021 6:33:55 PM</span>
+                    <span class="badge badge-primary">12/23/2021 6:18:19 PM</span>
                 </a>
             </li>
         </ul>
@@ -104,7 +104,7 @@
 						<i class="fa fa-exclamation-circle"></i>
 					</a>
 					<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a status="pass" class="dropdown-item" href="#"><span>Pass</span><span class="status success pull-right"></span></a>																																				<div class="dropdown-divider"></div>
+						<a status="fail" class="dropdown-item" href="#"><span>Fail</span><span class="status danger pull-right"></span></a>																														<div class="dropdown-divider"></div>
 						<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 					</ul>
 				</li>
@@ -112,25 +112,25 @@
         </div>
         <div class="test-list-wrapper scrollable">
             <ul class="test-list-item">
-					<li class="test-item" status="pass" author="" device="" tag="" test-id="1"> 
-						<div class="status-avatar pass-bg">
-							<i class="fa fa-check text-white"></i>
+					<li class="test-item" status="fail" author="" device="" tag="" test-id="1"> 
+						<div class="status-avatar fail-bg">
+							<i class="fa fa-times text-white"></i>
 						</div>
 						<div class="open-test">
 							<div class="test-detail"> 
 								<p class="name">Test1</p> 
-								<p class="duration text-sm">0h:0m:1s+318ms</p> 
-								<span class="datetime">18:33:56 PM</span>
+								<p class="duration text-sm">0h:0m:5s+854ms</p> 
+								<span class="datetime">18:18:20 PM</span>
 							</div>
 						</div>
 						<div class="test-contents d-none">
 							<div class="detail-head">
 								<div class="p-v-10 d-inline-block">	
 									<div class="info">
-										<h5 class="test-status text-pass">Test1</h5>
-										<span class='badge badge-success'>12/21/2021 6:33:56 PM</span>
-										<span class='badge badge-danger'>12/21/2021 6:33:57 PM</span>
-										<span class='badge badge-default'>0h:0m:1s+318ms</span>
+										<h5 class="test-status text-fail">Test1</h5>
+										<span class='badge badge-success'>12/23/2021 6:18:20 PM</span>
+										<span class='badge badge-danger'>12/23/2021 6:18:26 PM</span>
+										<span class='badge badge-default'>0h:0m:5s+854ms</span>
 									</div>
 																	</div>
 							</div>
@@ -144,59 +144,28 @@
 	</tr></thead>
 	<tbody>
 			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>18:33:57</td>
+				<td><i class="fa fa-times text-fail"></i></td>
+				<td>18:18:26</td>
 				<td>
-Test ended with Pass									</td>
+Fail									</td>
 			</tr>
-	</tbody>
-</table>
-
-</div>    
-						</div>
-					</li>
-					<li class="test-item" status="pass" author="" device="" tag="" test-id="2"> 
-						<div class="status-avatar pass-bg">
-							<i class="fa fa-check text-white"></i>
-						</div>
-						<div class="open-test">
-							<div class="test-detail"> 
-								<p class="name">Test2</p> 
-								<p class="duration text-sm">0h:0m:0s+034ms</p> 
-								<span class="datetime">18:39:40 PM</span>
-							</div>
-						</div>
-						<div class="test-contents d-none">
-							<div class="detail-head">
-								<div class="p-v-10 d-inline-block">	
-									<div class="info">
-										<h5 class="test-status text-pass">Test2</h5>
-										<span class='badge badge-success'>12/21/2021 6:39:40 PM</span>
-										<span class='badge badge-danger'>12/21/2021 6:39:40 PM</span>
-										<span class='badge badge-default'>0h:0m:0s+034ms</span>
-									</div>
-																	</div>
-							</div>
-<div class="detail-body mt-4">												
-	
-<table class="table table-sm">
-	<thead><tr>
-		<th class="status-col">Status</th>
-		<th class="timestamp-col">Timestamp</th>
-		<th class="details-col">Details</th>
-	</tr></thead>
-	<tbody>
 			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>18:39:40</td>
+				<td><i class="fa fa-times text-fail"></i></td>
+				<td>18:18:26</td>
 				<td>
-Test ended with Pass   at TestProject1.Tests.Test2() in C:\Users\visualstudiouser\source\repos\TestProject1\TestProject1\UnitTest1.cs:line 26									</td>
+Snapshot below: AventStack.ExtentReports.ExtentTest									</td>
+			</tr>
+			<tr class="event-row">
+				<td><i class="fa fa-times text-fail"></i></td>
+				<td>18:18:26</td>
+				<td>
+Test ended with Fail   at TestProject1.Tests.Tests1.Test1() in C:\Users\visualstudiouser\source\repos\TestProject1\TestProject1\Tests\UnitTest1.cs:line 29									</td>
 			</tr>
 	</tbody>
 </table>
 
 </div>    
-						</div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='Screenshots\Screenshot_6_18_22.png' src='Screenshots\Screenshot_6_18_22.png' data-src='Screenshots\Screenshot_6_18_22.png'>						</div>
 					</li>
             </ul>    
         </div>
@@ -229,11 +198,11 @@ Test ended with Pass   at TestProject1.Tests.Test2() in C:\Users\visualstudiouse
 	                </div>
 	            </div>
 	            <div class="card-footer">
-	                <div><small data-tooltip='100%'>
-	                    <b>2</b> tests passed
+	                <div><small data-tooltip='0%'>
+	                    <b>0</b> tests passed
                     </small></div>
 	                <div>
-	                    <small data-tooltip='0%'><b>0</b> tests failed, 
+	                    <small data-tooltip='100%'><b>1</b> tests failed, 
 	                    <b data-tooltip='0%'>0</b> others
 	                    </small>
                     </div>
@@ -248,10 +217,10 @@ Test ended with Pass   at TestProject1.Tests.Test2() in C:\Users\visualstudiouse
 	                <div class="media justify-content-between">
 						<div>
 							<h6 class="card-title">Tests</h6>
-							<h2 class="font-size-28 font-weight-light">2</h2>
+							<h2 class="font-size-28 font-weight-light">1</h2>
 							<span class="text-semibold text-success font-size-15">
 							<i class="ti-arrow-up font-size-11"></i> 
-								<span>100%</span>
+								<span>0%</span>
 							</span>
 						</div>
 						<div class="align-self-end">
@@ -267,7 +236,7 @@ Test ended with Pass   at TestProject1.Tests.Test2() in C:\Users\visualstudiouse
 	                <div class="media justify-content-between">
 						<div>
 							<h6 class="card-title">Start</h6>
-							<h6 class="font-weight-light">12/21/2021 6:33:55 PM</h6>
+							<h6 class="font-weight-light">12/23/2021 6:18:19 PM</h6>
 							<span class="text-semibold text-success font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -283,7 +252,7 @@ Test ended with Pass   at TestProject1.Tests.Test2() in C:\Users\visualstudiouse
 	                <div class="media justify-content-between">
 						<div>
 							<h6 class="card-title">Duration</h6>
-							<h6 class="font-weight-light">00:05:45.8497401</h6>
+							<h6 class="font-weight-light">00:26:43.3055803</h6>
 							<span class="text-semibold text-danger font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -299,7 +268,7 @@ Test ended with Pass   at TestProject1.Tests.Test2() in C:\Users\visualstudiouse
 	                <div class="media justify-content-between">
 						<div>
 							<p class="">Duration</p>
-							<h6 class="font-weight-light">00:05:45.8503498</h6>
+							<h6 class="font-weight-light">00:26:43.3061702</h6>
 							<span class="text-semibold font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -346,14 +315,14 @@ Test ended with Pass   at TestProject1.Tests.Test2() in C:\Users\visualstudiouse
 </div>
 <script>
 	var statusGroup = {
-    parentCount: 2,
-		passParent: 2,
-		failParent: 0,
+    parentCount: 1,
+		passParent: 0,
+		failParent: 1,
 		fatalParent: 0,
 		errorParent: 0,
 		warningParent: 0,
 		skipParent: 0,
-		exceptionsParent: 0,
+		exceptionsParent: 1,
 		childCount: 0,
 		passChild: 0,
 		failChild: 0,

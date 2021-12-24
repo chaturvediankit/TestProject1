@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+	<TestRunParameters>
+		<Parameter name="url" value="http://demoaut.katalon.com" />
+		<Parameter name="username" value="John Doe" />
+		<Parameter name="password" value="ThisIsNotAPassword" />
+		<Parameter name="wrongPassword" value="demo" />
+		<Parameter name="browser" value="Chrome" />
+	</TestRunParameters>
+</RunSettings>
+

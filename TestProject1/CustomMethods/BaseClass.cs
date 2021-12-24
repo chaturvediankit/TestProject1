@@ -8,7 +8,7 @@ using System.Text;
 
 namespace TestProject1.CustomMethods
 {
-    public static class BaseClass
+    public class BaseClass
     {
         // Tears down test and throws exception
         public static void CloseTest(IWebDriver driver)
