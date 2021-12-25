@@ -13,23 +13,33 @@ namespace TestProject1.CustomMethods
 {
     public class ExtentReportClass
     {
-        protected ExtentReports _extent;
+        public static ExtentReports _extent;
         protected ExtentTest _test;
-        public IWebDriver _driver;
+        public IWebDriver driver;
+
         [OneTimeSetUp]
         protected void Setup()
         {
-            var path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
-            var actualPath = path.Substring(0, path.LastIndexOf("bin"));
-            var projectPath = new Uri(actualPath).LocalPath;
-            Directory.CreateDirectory(projectPath.ToString() + "Reports");
-            var reportPath = projectPath + "Reports\\index.html";
-            var htmlReporter = new ExtentHtmlReporter(reportPath);
-            _extent = new ExtentReports();
-            _extent.AttachReporter(htmlReporter);
-            _extent.AddSystemInfo("Host Name", "LocalHost");
-            _extent.AddSystemInfo("Environment", "QA");
-            _extent.AddSystemInfo("UserName", "TestUser");
+            if (_extent == null)
+            {
+                var path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
+                var actualPath = path.Substring(0, path.LastIndexOf("bin"));
+                var projectPath = new Uri(actualPath).LocalPath;
+                if (Directory.Exists(projectPath.ToString() + "Reports") == false)
+                {
+                    Directory.CreateDirectory(projectPath.ToString() + "Reports");
+                }
+                //Directory.CreateDirectory(projectPath.ToString() + "Reports");
+                var reportPath = projectPath + "Reports\\index.html";
+                var htmlReporter = new ExtentHtmlReporter(reportPath);
+                _extent = new ExtentReports();
+                _extent.AttachReporter(htmlReporter);
+                _extent.AddSystemInfo("Host Name", "LocalHost");
+                _extent.AddSystemInfo("Browser", TestContext.Parameters.Get("browser"));
+                _extent.AddSystemInfo("Portal", TestContext.Parameters.Get("portal"));
+                _extent.AddSystemInfo("UserName", TestContext.Parameters.Get("username"));
+            }
+
         }
         [OneTimeTearDown]
         protected void TearDown()
@@ -39,9 +49,10 @@ namespace TestProject1.CustomMethods
         [SetUp]
         public void BeforeTest()
         {
-            _driver = new ChromeDriver();
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
-            _driver.Manage().Window.Maximize();
+            driver = new ChromeDriver();
+            driver.Navigate().GoToUrl(TestContext.Parameters.Get("url"));
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+            driver.Manage().Window.Maximize();
             _test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
         }
         [TearDown]
@@ -56,10 +67,10 @@ namespace TestProject1.CustomMethods
                 case TestStatus.Failed:
                     logstatus = Status.Fail;
                     DateTime time = DateTime.Now;
-                     String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
-                    String screenShotPath = Capture(_driver, fileName);
+                    //String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
+                    //String screenShotPath = Capture(driver, fileName);
                     _test.Log(Status.Fail, "Fail");
-                    _test.Log(Status.Fail, "Snapshot below: " + _test.AddScreenCaptureFromPath("Screenshots\\" + fileName));
+                    //_test.Log(Status.Fail, "Snapshot below: " + _test.AddScreenCaptureFromPath("Screenshots\\" + fileName));
                     break;
                 case TestStatus.Inconclusive:
                     logstatus = Status.Warning;
@@ -73,11 +84,12 @@ namespace TestProject1.CustomMethods
             }
             _test.Log(logstatus, "Test ended with " + logstatus + stacktrace);
             _extent.Flush();
-            _driver.Quit();
+            BaseClass baseClass = new BaseClass();
+            baseClass.CloseTest(driver);
         }
         public IWebDriver GetDriver()
         {
-            return _driver;
+            return driver;
         }
         public static string Capture(IWebDriver driver, String screenShotName)
         {

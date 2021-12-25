@@ -9,18 +9,9 @@ using TestProject1.PageObjects;
 
 namespace TestProject1.Tests
 {
-    public class CustomerTests
+    public class CustomerTests:ExtentReportClass
     {
-        IWebDriver driver;
-        [SetUp]
-        public void setup()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl(TestContext.Parameters.Get("url"));
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-
-        }
+        
         [Test]
         public void AddNewCustomerTest()
         {
@@ -59,12 +50,7 @@ namespace TestProject1.Tests
             int customercountAfterDelete = driver.FindElements(By.XPath("//table[@class='xcrud-list table table-striped table-hover']/tbody/tr")).Count;
             Assert.IsTrue(customercountBeforeDelete > customercountAfterDelete, "Customer not deleted ");
         }
-        [TearDown]
-        public void close()
-        {
-            BaseClass baseClass = new BaseClass();
-            baseClass.CloseTest(driver);
-       }
+       
 
     }
 }
