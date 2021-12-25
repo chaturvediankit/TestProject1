@@ -12,7 +12,7 @@ namespace TestProject1.CustomMethods
     public static class ScreenShotsClass
     {
         // Failed Test Screen capture
-        public static void FailedTestCaptureScreenShot(IWebDriver driver,string Scenario)
+        public static void FailedTestCaptureScreenShot(IWebDriver driver,string testName)
         {
 
             try
@@ -36,7 +36,7 @@ namespace TestProject1.CustomMethods
                 {
                     Directory.CreateDirectory(TestResultLocation);
                 }
-                string localPathName = TestResultLocation + "/" + Scenario;
+                string localPathName = TestResultLocation + "/" + testName;
 
                 if (Directory.Exists(localPathName) == false)
                 {
@@ -49,7 +49,8 @@ namespace TestProject1.CustomMethods
             {
                 Console.WriteLine("Failed Screensots- failed ");
                 Assert.Fail();
-                BaseClass.CloseTest(driver);
+                BaseClass baseClass = new BaseClass();
+                baseClass.CloseTest(driver);
             }
 
 

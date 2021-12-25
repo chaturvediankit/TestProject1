@@ -34,7 +34,7 @@ namespace TestProject1.CustomMethods
             catch (NoSuchElementException ex)
             {
                 Console.WriteLine("No Such Element : {0}", ex.Message);
-                Assert.Fail("No Such Element");
+               // Assert.Fail("No Such Element");
                 return false;
             }
         }

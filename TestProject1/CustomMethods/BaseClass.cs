@@ -11,7 +11,7 @@ namespace TestProject1.CustomMethods
     public class BaseClass
     {
         // Tears down test and throws exception
-        public static void CloseTest(IWebDriver driver)
+        public void CloseTest(IWebDriver driver)
         {
             try
             {

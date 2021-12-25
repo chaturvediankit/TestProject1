@@ -18,7 +18,7 @@ namespace TestProject1.Tests
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(TestContext.Parameters.Get("url"));
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
 
         }
         [Test]
@@ -50,11 +50,21 @@ namespace TestProject1.Tests
             BaseClass baseClass = new BaseClass();
             baseClass.ActionHoverAndClick(driver, dashboardPage.accountsLink, dashboardPage.customersLink);
             //Delete Customer
+            int customercountBeforeDelete = driver.FindElements(By.XPath("//table[@class='xcrud-list table table-striped table-hover']/tbody/tr")).Count;
             CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
             customerManagementPage.specificCustomerCheckbox.Click();
             customerManagementPage.deleteCustomerButton.Click();
-            Assert.IsFalse(AssertClass.IsElementPresent(driver, customerManagementPage.specificCustomerCheckbox), "Customer present page");
+            driver.SwitchTo().Alert().Accept();
+            System.Threading.Thread.Sleep(50000);
+            int customercountAfterDelete = driver.FindElements(By.XPath("//table[@class='xcrud-list table table-striped table-hover']/tbody/tr")).Count;
+            Assert.IsTrue(customercountBeforeDelete > customercountAfterDelete, "Customer not deleted ");
         }
+        [TearDown]
+        public void close()
+        {
+            BaseClass baseClass = new BaseClass();
+            baseClass.CloseTest(driver);
+       }
 
     }
 }

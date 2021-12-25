@@ -11,7 +11,7 @@ namespace TestProject1.Tests
     public class Tests1:ExtentReportClass
 
     {
-        public TestContext TestContext { get; set; }
+        
         public IWebDriver driver;
 
         
@@ -19,14 +19,13 @@ namespace TestProject1.Tests
         [Test]
         public void Test1()
         {
-            driver = GetDriver();
-            //driver = new ChromeDriver();
+            //driver = GetDriver();
+            driver = new ChromeDriver();
             //driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("https://github.com/");
             //string str=TestContext.Parameters.Get("username");
-            //ScreenShotsClass.FailedTestCaptureScreenShot(driver,"Login");
-            //driver.Quite(0);
-            Assert.Fail("Tes");
+            ScreenShotsClass.FailedTestCaptureScreenShot(driver,"Login");
+            
 
         }
         
